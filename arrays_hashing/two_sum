@@ -2,10 +2,9 @@ class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         values_counted = {}
 
-        for i in range(len(nums)):
-            diff = target - nums[i]
+        for i, num in enumerate(nums):
+            diff = target - num
             if diff in values_counted:
-                first_index = values_counted.get(diff)
-                return [first_index, i]
+                return [values_counted[diff], i]
             else:
                 values_counted[nums[i]] = i
