@@ -1,0 +1,19 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        
+        # HASHMAP to map character count to the list of anagrams
+        final = defaultdict(list)
+
+        # Go through each string
+        for i in strs:
+            # 26 0s, where there is one for each character.
+            count = [0] * 26
+
+            for w in i:
+                # Assign letter to index through ord for getting number on unicode
+                count[ord(w) - ord('a')] += 1
+                
+            #Tuples are immutable so change in the way that list is not a key.
+            final[tuple(count)].append(i) 
+
+        return list(final.values())
