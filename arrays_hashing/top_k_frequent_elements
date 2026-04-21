@@ -1,0 +1,11 @@
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        
+        checked = {}
+
+        for n in nums:
+            # same pattern as in Anagram Problem
+            checked[n] = checked.get(n, 0) + 1
+            
+        return checked
+        
